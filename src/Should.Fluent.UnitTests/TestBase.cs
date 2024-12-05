@@ -14,7 +14,7 @@ namespace Should.Fluent.UnitTests
 
         private Establish context = () =>
         {
-            mockAssertProvider = new MockFactory(MockBehavior.Loose).Create<IAssertProvider>();
+            mockAssertProvider = new MockRepository(MockBehavior.Loose).Create<IAssertProvider>();
         };
 
         protected static void Called(Expression<Action<IAssertProvider>> action)
@@ -61,12 +61,12 @@ namespace Should.Fluent.UnitTests
 
         protected static void VerifyResultType<TExpetected>()
         {
-            Assert.IsInstanceOfType(typeof(TExpetected), result);
+            Assert.That(result, Is.InstanceOf(typeof(TExpetected)));
         }
 
         protected static void VerifyResult(object actual)
         {
-            Assert.AreEqual(actual, result);
+            Assert.That(result, Is.EqualTo(actual));
         }
     }
 

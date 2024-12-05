@@ -1,6 +1,5 @@
 using System;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.Json;
 using Xunit;
 using Assert = Should.Core.Assertions.Assert;
 
@@ -14,17 +13,11 @@ namespace Should.Facts.Core
         [Fact]
         void CanSerializeAndDeserializeObjectsInATest()
         {
-            BinaryFormatter bf = new BinaryFormatter();
+            var serialized = JsonSerializer.Serialize(new SerializableObject());
+            var o = JsonSerializer.Deserialize<SerializableObject>(serialized);
 
-            using (Stream ms = new MemoryStream())
-            {
-                bf.Serialize(ms, new SerializableObject());
-                ms.Position = 0;
-                object o = bf.Deserialize(ms);
-
-                Assert.IsType(typeof(SerializableObject), o);
-                Assert.DoesNotThrow(delegate { SerializableObject o2 = (SerializableObject)o; });
-            }
+            Assert.IsType(typeof(SerializableObject), o);
+            Assert.DoesNotThrow(delegate { SerializableObject o2 = (SerializableObject)o; });
         }
     }
 }

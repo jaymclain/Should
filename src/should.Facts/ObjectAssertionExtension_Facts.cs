@@ -17,13 +17,13 @@ namespace Should.Facts
                 s.ShouldNotBeNull("custom failure message");
             });
 
-            Assert.Equal(ex.Message, "custom failure message");
+            Assert.Equal("custom failure message", ex.Message);
         }
 
         [Fact]
         public void ShouldNotBeNull_returns_a_strongly_typed_sut_to_support_optional_chaining()
         {
-            String s = "foo";
+            var s = "foo";
 
             var sut = s.ShouldNotBeNull();
 

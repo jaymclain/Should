@@ -1,17 +1,25 @@
 using System;
 using System.Diagnostics;
+using Should.Core.Exceptions;
 using Xunit;
-using Xunit.Sdk;
+using Xunit.Abstractions;
 using Assert = Should.Core.Assertions.Assert;
 
 namespace Should.Facts.Core
 {
     public class TraceAssertTests
     {
+        private readonly ITestOutputHelper _output;
+
+        public TraceAssertTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
         [Fact]
         public void TraceAssertFailureWithFullDetails()
         {
-            TraceAssertException ex = Assert.Throws<TraceAssertException>(() => Trace.Assert(false, "message", "detailed message"));
+            var ex = Assert.Throws<TraceAssertException>(() => Trace.Assert(false, "message", "detailed message"));
 
             Assert.Equal("message", ex.AssertMessage);
             Assert.Equal("detailed message", ex.AssertDetailedMessage);

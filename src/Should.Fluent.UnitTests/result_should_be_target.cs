@@ -8,6 +8,6 @@ namespace Should.Fluent.UnitTests
     {
         protected static T result;
         protected static T target;
-        It result_should_equal_target = () => Assert.AreEqual(target, result);
+        It result_should_equal_target = () => Assert.That(result, Is.EqualTo(target));
     }
 }

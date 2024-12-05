@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Xunit;
 using Assert = Should.Core.Assertions.Assert;
 
@@ -9,9 +10,9 @@ namespace Should.Facts.Core
         public class MethodsWithoutReturnValues
         {
             [Fact]
-            public void Exception()
+            public async Task Exception()
             {
-                Exception ex = Record.Exception(delegate { throw new InvalidOperationException(); });
+                Exception ex = await Record.ExceptionAsync(delegate { throw new InvalidOperationException(); });
 
                 Assert.NotNull(ex);
                 Assert.IsType<InvalidOperationException>(ex);

@@ -1,5 +1,6 @@
 ﻿using System;
 using Machine.Specifications;
+using NUnit.Framework;
 
 namespace Should.Fluent.UnitTests.IntegrationTests
 {

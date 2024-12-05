@@ -12,9 +12,5 @@ namespace Should.Core.Exceptions
     {
         /// <summary/>
         public ParamterCountMismatchException() { }
-
-        /// <summary/>
-        protected ParamterCountMismatchException(SerializationInfo info, StreamingContext context)
-            : base(info, context) { }
     }
 }
