@@ -4,7 +4,7 @@
     <ProjectGuid>{A2973D4C-660C-42C8-A610-3B69170B6932}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Should.Fluent.UnitTests</RootNamespace>
-    <TargetFrameworks>net462;net8.0</TargetFrameworks>
+    <TargetFrameworks>net8.0</TargetFrameworks>
     <NoWarn>CS0169</NoWarn>
   </PropertyGroup>
   <ItemGroup>

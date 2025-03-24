@@ -7,7 +7,33 @@ using Assert = Should.Core.Assertions.Assert;
 
 namespace Should.Facts.Core
 {
-    public class TraceAssertTests
+    public class ThrowListener : TextWriterTraceListener
+{
+    public override void Fail(string message)
+    {
+        throw new Exception(message);
+    }
+
+    public override void Fail(string message, string detailMessage)
+    {
+        throw new Exception(message);
+    }
+}
+    public class ThrowListenerFixture
+    {
+        public ThrowListenerFixture()
+        {
+            Trace.Listeners.RemoveAt(0);
+            Trace.Listeners.Add(new ThrowListener());
+        }
+
+        public void Dispose()
+        {
+
+        }
+    }
+
+    public class TraceAssertTests //: IClassFixture<ThrowListenerFixture>
     {
         private readonly ITestOutputHelper _output;
 

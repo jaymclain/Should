@@ -3,7 +3,7 @@
     <AssemblyName>Should.Core</AssemblyName>
     <ProjectGuid>{984764C1-D102-43AD-8DE9-0AA3B7E5D431}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>net462;net8.0</TargetFrameworks>
+    <TargetFrameworks>net8.0</TargetFrameworks>
     <RootNamespace>Should.Core</RootNamespace>
   </PropertyGroup>
 </Project>
